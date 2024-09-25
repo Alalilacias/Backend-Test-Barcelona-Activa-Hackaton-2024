@@ -18,7 +18,6 @@ out/
 ### Gradle ###
 .gradle
 gradle/
-build.gradle
 gradlew
 gradlew.bat
 settings.gradle
