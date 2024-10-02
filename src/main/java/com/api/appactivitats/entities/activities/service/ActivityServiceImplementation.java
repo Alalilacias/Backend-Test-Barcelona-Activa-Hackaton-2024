@@ -1,6 +1,8 @@
 package com.api.appactivitats.entities.activities.service;
 
 import com.api.appactivitats.entities.activities.domain.Activity;
+import com.api.appactivitats.entities.activities.dto.ActivityDTO;
+import com.api.appactivitats.entities.activities.dto.ActivityMapper;
 import com.api.appactivitats.entities.activities.exception.ActivityNotFoundException;
 import com.api.appactivitats.entities.activities.exception.ReadingJSONException;
 import com.api.appactivitats.entities.activities.repository.ActivityRepository;
@@ -43,26 +45,26 @@ public class ActivityServiceImplementation implements ActivityService {
     }
 
     @Override
-    public void addUserToActivity(String id, String userID) {
+    public Activity addUserToActivity(String id, String userID) {
         Activity activity = activityRepository.findById(id).orElseThrow(() -> new ActivityNotFoundException(id));
         User user = userRepository.findById(userID).orElseThrow(() -> new UserNotFoundException(userID));
 
         activity.enrollUser(UserMapper.toReference(user));
-        activityRepository.save(activity);
+        return activityRepository.save(activity);
     }
 
     @Override
-    public void updateActivity(String id, Activity activityWithUpdates) {
+    public void updateActivity(String id, ActivityDTO activityWithUpdates) {
         Activity activityToUpdate = activityRepository.findById(id).orElseThrow(() -> new ActivityNotFoundException(id));
 
-        if (!activityWithUpdates.getName().equals(activityToUpdate.getName())){
-            activityToUpdate.setName(activityWithUpdates.getName());
+        if (!activityWithUpdates.name().equals(activityToUpdate.getName())){
+            activityToUpdate.setName(activityWithUpdates.name());
         }
-        if (!activityWithUpdates.getDescription().equals(activityToUpdate.getDescription())){
-            activityToUpdate.setDescription(activityWithUpdates.getDescription());
+        if (!activityWithUpdates.description().equals(activityToUpdate.getDescription())){
+            activityToUpdate.setDescription(activityWithUpdates.description());
         }
-        if (activityWithUpdates.getCapacity() != (activityToUpdate.getCapacity())){
-            activityToUpdate.setCapacity(activityWithUpdates.getCapacity());
+        if (activityWithUpdates.capacity() != (activityToUpdate.getCapacity())){
+            activityToUpdate.setCapacity(activityWithUpdates.capacity());
         }
 
         activityRepository.save(activityToUpdate);
@@ -76,7 +78,7 @@ public class ActivityServiceImplementation implements ActivityService {
     }
 
     @Override
-    public void addActivitiesFromJson(String json) {
+    public List<ActivityDTO> addActivitiesFromJson(String json) {
         List<Activity> activityJsonList;
 
         try {
@@ -85,6 +87,8 @@ public class ActivityServiceImplementation implements ActivityService {
             throw new ReadingJSONException("Failed to read Activities from JSON: " + e.getMessage(), e);
         }
 
-        activityRepository.saveAll(activityJsonList);
+        return activityRepository.saveAll(activityJsonList).stream()
+                .map(ActivityMapper::toDTO)
+                .toList();
     }
 }

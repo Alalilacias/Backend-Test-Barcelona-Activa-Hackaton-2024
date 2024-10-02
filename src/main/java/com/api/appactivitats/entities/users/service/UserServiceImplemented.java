@@ -5,7 +5,9 @@ import com.api.appactivitats.entities.activities.dto.ActivityMapper;
 import com.api.appactivitats.entities.activities.exception.ActivityNotFoundException;
 import com.api.appactivitats.entities.activities.repository.ActivityRepository;
 import com.api.appactivitats.entities.users.domain.User;
+import com.api.appactivitats.entities.users.dto.UserDTO;
 import com.api.appactivitats.entities.users.dto.UserReference;
+import com.api.appactivitats.entities.users.dto.UserRequest;
 import com.api.appactivitats.entities.users.exception.UserAlreadyRegisteredException;
 import com.api.appactivitats.entities.users.exception.UserNotFoundException;
 import com.api.appactivitats.entities.users.repository.UserRepository;
@@ -56,17 +58,17 @@ public class UserServiceImplemented implements UserService {
     }
 
     @Override
-    public void updateUser(String id, User userWithUpdates) {
+    public void updateUser(String id, UserRequest userWithUpdates) {
         User userToUpdate = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
 
-        if (!userToUpdate.getName().equals(userWithUpdates.getName())){
-            userToUpdate.setName(userWithUpdates.getName());
+        if (!userToUpdate.getName().equals(userWithUpdates.name())){
+            userToUpdate.setName(userWithUpdates.name());
         }
-        if (!userToUpdate.getSurname().equals(userWithUpdates.getSurname())){
-            userToUpdate.setSurname(userWithUpdates.getSurname());
+        if (!userToUpdate.getSurname().equals(userWithUpdates.surname())){
+            userToUpdate.setSurname(userWithUpdates.surname());
         }
-        if (!userToUpdate.getContactInformation().equals(userWithUpdates.getContactInformation())){
-            userToUpdate.setContactInformation(userWithUpdates.getContactInformation());
+        if (!userToUpdate.getContactInformation().equals(userWithUpdates.contactInformation())){
+            userToUpdate.setContactInformation(userWithUpdates.contactInformation());
         }
 
         userRepository.save(userToUpdate);

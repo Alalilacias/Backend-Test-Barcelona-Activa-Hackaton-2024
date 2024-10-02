@@ -2,6 +2,7 @@ package com.api.appactivitats.entities.users.service;
 
 import com.api.appactivitats.entities.users.domain.User;
 import com.api.appactivitats.entities.users.dto.UserReference;
+import com.api.appactivitats.entities.users.dto.UserRequest;
 
 import java.util.List;
 import java.util.Set;
@@ -15,7 +16,7 @@ public interface UserService {
 
     Set<UserReference> readUsersByActivity(String id);
 
-    void updateUser(String id, User userWithUpdates);
+    void updateUser(String id, UserRequest userWithUpdates);
 
     void deleteUser(String id);
 
