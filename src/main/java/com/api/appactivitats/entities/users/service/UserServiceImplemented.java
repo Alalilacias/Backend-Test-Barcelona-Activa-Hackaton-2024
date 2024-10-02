@@ -31,11 +31,6 @@ public class UserServiceImplemented implements UserService {
 
     @Override
     public void createUser(User user) {
-        userRepository.findByEmail(user.getContactInformation().email())
-                .ifPresent(existingUser -> {
-                    throw new UserAlreadyRegisteredException("User Already Registered");
-                });
-
         userRepository.save(user);
         log.info("User with UUID: " + user.getId() + "created.");
     }
