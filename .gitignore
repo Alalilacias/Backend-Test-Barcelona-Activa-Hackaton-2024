@@ -1,6 +1,6 @@
 build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+!src/main/**/build/
+!src/test/**/build/
 
 ### IntelliJ IDEA ###
 .idea/
@@ -12,13 +12,12 @@ build/
 *.iml
 *.ipr
 out/
-!**/src/main/**/out/
-!**/src/test/**/out/
+!src/main/**/out/
+!src/test/**/out/
 
 ### Gradle ###
 .gradle
 gradle/
-build.gradle
 gradlew
 gradlew.bat
 settings.gradle
@@ -33,8 +32,8 @@ settings.gradle
 .springBeans
 .sts4-cache
 bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+!src/main/**/bin/
+!src/test/**/bin/
 
 ### NetBeans ###
 /nbproject/private/
