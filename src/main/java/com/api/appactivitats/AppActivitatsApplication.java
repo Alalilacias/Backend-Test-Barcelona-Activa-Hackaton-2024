@@ -1,4 +1,4 @@
-package com.api.appActivitats;
+package com.api.appactivitats;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
