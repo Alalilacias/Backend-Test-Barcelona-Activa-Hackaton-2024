@@ -63,13 +63,13 @@ You can download the Postman collection for this project [here](#).
 
 ### 2. Import the Collection
 
-1. Copy the entire [Collection JSON File}(#) to the clipboard.
+1. Copy the entire [Collection JSON File](https://github.com/Alalilacias/Backend-Test-Barcelona-Activa-Hackaton-2024/blob/main/src/test/Postman/Barcelona%20Activa%20Hackathon%202024%20API%20Copy.postman_collection.json) to the clipboard.
 2. Open Postman, navigate to a new workspace, open the collection tab and click on **Import**.
 3. Paste the copied text and allow Postman to configure itself.
 
 ### 3. Import the Environment
 
-1. Copy the contents of the [Environment JSON File}(#) to the clipboard.
+1. Copy the contents of the [Environment JSON File](https://github.com/Alalilacias/Backend-Test-Barcelona-Activa-Hackaton-2024/blob/main/src/test/Postman/Test%20Environment.postman_environment.json) to the clipboard.
 2. Open Postman, navigate to a new workspace, open the environment tab and click on **Import**.
 3. Paste the copied text and allow Postman to configure itself.
 
