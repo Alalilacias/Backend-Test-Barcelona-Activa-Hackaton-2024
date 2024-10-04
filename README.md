@@ -45,7 +45,7 @@ Build the project using Gradle:
 ./gradlew build
 ```
 
-### 4. Run the application
+## Running the application
 
 Run the Spring Boot application:
 
@@ -57,30 +57,26 @@ The application should now be running at `http://localhost:8080`.
 
 ## Testing with Postman
 
-### 1. Download the Postman Collection
-
-You can download the Postman collection for this project [here](#).
-
-### 2. Import the Collection
+### 1. Import the Collection
 
 1. Copy the entire [Collection JSON File](https://github.com/Alalilacias/Backend-Test-Barcelona-Activa-Hackaton-2024/blob/main/src/test/Postman/Barcelona%20Activa%20Hackathon%202024%20API%20Copy.postman_collection.json) to the clipboard.
-2. Open Postman, navigate to a new workspace, open the collection tab and click on **Import**.
+2. Open Postman, navigate to a new workspace, open the collection tab, and click on **Import**.
 3. Paste the copied text and allow Postman to configure itself.
 
-### 3. Import the Environment
+### 2. Import the Environment
 
 1. Copy the contents of the [Environment JSON File](https://github.com/Alalilacias/Backend-Test-Barcelona-Activa-Hackaton-2024/blob/main/src/test/Postman/Test%20Environment.postman_environment.json) to the clipboard.
-2. Open Postman, navigate to a new workspace, open the environment tab and click on **Import**.
+2. Open Postman, navigate to a new workspace, open the environment tab, and click on **Import**.
 3. Paste the copied text and allow Postman to configure itself.
 
-### 4. Run the Tests
+### 3. Run the Tests
 
-After importing the collection and environment, make sure the backend is running (`http://localhost:8080`). Then, follow these steps:
+After importing the collection and environment, ensure the backend is running (`http://localhost:8080`). Then, follow these steps:
 
 1. Select the **Barcelona Activa Hackathon 2024** collection.
 2. Click **Run** to execute all the endpoints.
 
-This will automatically test all the endpoints provided by the backend and verify their responses.
+This will automatically test all the backend's endpoints and verify their responses.
 
 ## Endpoints
 
