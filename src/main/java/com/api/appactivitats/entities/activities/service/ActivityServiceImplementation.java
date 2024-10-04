@@ -54,7 +54,7 @@ public class ActivityServiceImplementation implements ActivityService {
     }
 
     @Override
-    public void updateActivity(String id, ActivityDTO activityWithUpdates) {
+    public Activity updateActivity(String id, ActivityDTO activityWithUpdates) {
         Activity activityToUpdate = activityRepository.findById(id).orElseThrow(() -> new ActivityNotFoundException(id));
 
         if (!activityWithUpdates.name().equals(activityToUpdate.getName())){
@@ -67,7 +67,7 @@ public class ActivityServiceImplementation implements ActivityService {
             activityToUpdate.setCapacity(activityWithUpdates.capacity());
         }
 
-        activityRepository.save(activityToUpdate);
+        return activityRepository.save(activityToUpdate);
     }
 
     @Override

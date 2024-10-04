@@ -16,7 +16,7 @@ public interface UserService {
 
     Set<UserReference> readUsersByActivity(String id);
 
-    void updateUser(String id, UserRequest userWithUpdates);
+    User updateUser(String id, UserRequest userWithUpdates);
 
     void deleteUser(String id);
 

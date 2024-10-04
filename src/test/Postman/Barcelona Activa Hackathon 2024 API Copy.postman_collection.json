@@ -1,0 +1,464 @@
+{
+	"info": {
+		"_postman_id": "2346f0c2-093d-4d91-b29c-c9a3dd9e0c93",
+		"name": "Barcelona Activa Hackathon 2024 API Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34173504"
+	},
+	"item": [
+		{
+			"name": "Activities",
+			"item": [
+				{
+					"name": "Create Activity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"activityId\", jsonData.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Taller de Programació\",\"description\": \"Introducció a la programació per principiants\",\"capacity\": 30}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/activity",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"activity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve All Activities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/activities",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"activities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Specific Activity",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/activities/{{activityId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"activities",
+								"{{activityId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Activity",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Taller de Programació Avançat\",\"description\": \"Millora les teves habilitats de programació\",\"capacity\": 25}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/activities/{{activityId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"activities",
+								"{{activityId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Activity",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/activities/{{activityId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"activities",
+								"{{activityId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Register User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"userId\", jsonData.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Martí\",\"surname\": \"Vilaplana\",\"contactInformation\": {\"email\": \"marti.vilaplana@hackato_test.cat\",\"phone\": {\"countryCode\": \"+34\",\"number\": \"611234567\"},\"address\": {\"street\": \"Carrer de Balmes\",\"number\": 23,\"floor\": 2,\"door\": 1,\"postalCode\": \"08007\",\"county\": \"Barcelona\",\"city\": \"Barcelona\",\"country\": \"Spain\"}}}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Specific User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/users/{{userId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"users",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Martí\",\"surname\": \"Vilaplana\",\"contactInformation\": {\"email\": \"marti.vilaplana@hackato_test.cat\",\"phone\": {\"countryCode\": \"+34\",\"number\": \"611234568\"},\"address\": {\"street\": \"Carrer de Balmes\",\"number\": 23,\"floor\": 2,\"door\": 1,\"postalCode\": \"08007\",\"county\": \"Barcelona\",\"city\": \"Barcelona\",\"country\": \"Spain\"}}}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/users/{{userId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"users",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/users/{{userId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"users",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Activity Enrollment",
+			"item": [
+				{
+					"name": "Create Activity Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"activityId\", jsonData.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Taller de Programació\",\"description\": \"Introducció a la programació per principiants\",\"capacity\": 30}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/activity",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"activity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register User Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"userId\", jsonData.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Martí\",\"surname\": \"Vilaplana\",\"contactInformation\": {\"email\": \"marti.vilaplana@hackato_test.cat\",\"phone\": {\"countryCode\": \"+34\",\"number\": \"611234567\"},\"address\": {\"street\": \"Carrer de Balmes\",\"number\": 23,\"floor\": 2,\"door\": 1,\"postalCode\": \"08007\",\"county\": \"Barcelona\",\"city\": \"Barcelona\",\"country\": \"Spain\"}}}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enroll User to Activity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/activities/{{activityId}}/users/{{userId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"activities",
+								"{{activityId}}",
+								"users",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Users by Activity",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/activities/{{activityId}}/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"activities",
+								"{{activityId}}",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Activity Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/activities/{{activityId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"activities",
+								"{{activityId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/appActivitats/users/{{userId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appActivitats",
+								"users",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

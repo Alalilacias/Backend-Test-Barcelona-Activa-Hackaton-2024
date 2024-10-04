@@ -1,10 +1,7 @@
 package com.api.appactivitats.entities.activities.domain;
 
-import com.api.appactivitats.entities.activities.dto.ActivityDTO;
 import com.api.appactivitats.entities.users.dto.UserReference;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -16,18 +13,18 @@ import java.util.UUID;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Document(collection = "activities")
 public class Activity {
     @Id
-    @Setter(AccessLevel.NONE)
     private String id = UUID.randomUUID().toString();
 
     private String name;
     private String description;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    @Setter(AccessLevel.NONE)
-    private final Instant creationDateTime = Instant.now();
+    private Instant creationDateTime = Instant.now();
 
     private int capacity;
 

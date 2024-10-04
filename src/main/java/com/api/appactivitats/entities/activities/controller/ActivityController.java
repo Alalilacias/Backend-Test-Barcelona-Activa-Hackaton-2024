@@ -23,7 +23,7 @@ public class ActivityController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/activities")
+    @PostMapping("/activity")
     public ResponseEntity<ActivityDTO> createActivity(@RequestBody ActivityRegistrationRequest activityRegistrationRequest){
         Activity activity = new Activity(
                 activityRegistrationRequest.name(),
@@ -57,21 +57,21 @@ public class ActivityController {
     public ResponseEntity<List<UserDTO>> readUsersByActivity(@PathVariable String id) {
         List<UserDTO> users = userService.readUsersByActivity(id).stream()
                 .map(UserMapper::toDTO)
-                .collect(Collectors.toList());
+                .toList();
         return ResponseEntity.ok(users);
     }
 
     @PutMapping("activities/{id}")
     public ResponseEntity<ActivityDTO> updateActivity(@PathVariable String id, @RequestBody ActivityDTO activityDTO){
-        activityService.updateActivity(id, activityDTO);
-        return ResponseEntity.ok(activityDTO);
+        Activity activity = activityService.updateActivity(id, activityDTO);
+        return ResponseEntity.ok(ActivityMapper.toDTO(activity));
     }
 
     @GetMapping("/activities")
     public ResponseEntity<List<ActivityDTO>> readAllActivities() {
         List<ActivityDTO> activities = activityService.readAllActivities().stream()
                 .map(ActivityMapper::toDTO)
-                .collect(Collectors.toList());
+                .toList();
 
         return ResponseEntity.ok(activities);
     }

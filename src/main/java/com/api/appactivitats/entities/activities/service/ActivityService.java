@@ -15,7 +15,7 @@ public interface ActivityService {
 
     Activity addUserToActivity(String id, String userID);
 
-    void updateActivity(String id, ActivityDTO activityWithUpdates);
+    Activity updateActivity(String id, ActivityDTO activityWithUpdates);
 
     void deleteActivity(String id);
 

@@ -14,6 +14,7 @@ public class UserMapper {
     }
     public static UserDTO toDTO(UserReference userReference){
         return new UserDTO(
+                userReference.id(),
                 userReference.name(),
                 userReference.surname(),
                 userReference.email()
@@ -21,6 +22,7 @@ public class UserMapper {
     }
     public static UserDTO toDTO(User user){
         return new UserDTO(
+                user.getId(),
                 user.getName(),
                 user.getSurname(),
                 user.getContactInformation().email()

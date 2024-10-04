@@ -40,14 +40,14 @@ public class UserController {
     public ResponseEntity<List<UserDTO>> readAllUsers() {
         List<UserDTO> users = userService.readAllUsers().stream()
                 .map(UserMapper::toDTO)
-                .collect(Collectors.toList());
+                .toList();
         return ResponseEntity.ok(users);
     }
 
     @PutMapping("/users/{id}")
     public ResponseEntity<UserDTO> updateUser(@PathVariable String id, @RequestBody UserRequest userRequest) {
-        userService.updateUser(id, userRequest);
-        return ResponseEntity.ok().build();
+        User user = userService.updateUser(id, userRequest);
+        return ResponseEntity.ok(UserMapper.toDTO(user));
     }
 
     @DeleteMapping("/users/{id}")
